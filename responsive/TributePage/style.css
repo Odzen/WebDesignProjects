@@ -1,0 +1,70 @@
+body {
+  margin: 0 auto;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#main {
+  background-color: #ddd;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+#title-div {
+  text-align: center;
+  margin: 0 5rem 0 5rem;
+  flex: 1 2;
+}
+
+#title {
+  color: black;
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 0 0;
+}
+
+#img-div {
+  max-width: 800px;
+  margin: 0 auto;
+  color: gray;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: aliceblue;
+}
+
+#image {
+  max-width: 100%; /*Ocupa el 100% de su padre*/
+  height: auto; /*Cambia con respecto a el width*/
+  display: block;
+}
+
+#tribute-info h2 {
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#tribute-info {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#tribute-info ul li {
+  color: gray;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+
+.year {
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+}
+
+#end {
+  background-color: #e5e5e5;
+  text-align: center;
+}
+
+#tribute-link {
+  text-decoration: none;
+}
