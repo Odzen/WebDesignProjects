@@ -1,7 +1,30 @@
+/*Custom properties*/
+
+:root {
+  /*Colors*/
+
+  --clr-primary-200: #f3eed9;
+  --clr-primary-400: #824936;
+
+  --clr-neutral-100: #fff;
+  --clr-neutral-900: #222c2a;
+
+  /*Fonts: 1. Body, 2. Headings*/
+  --ff-primary: 'Roboto', sans-serif;
+  --ff-accent: 'Playfair Display', serif;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-primary); /*Using the variables*/
+  font-weight: 300;
+  font-size: 1.3125rem;
+  line-height: 1.6;
 }
 
 body,
@@ -10,4 +33,107 @@ h2,
 h3,
 p {
   margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--clr-primary-400);
+  font-family: var(--ff-accent);
+  font-weight: 900;
+  line-height: 1;
+}
+
+h2,
+h3 {
+  margin-bottom: 1em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+header,
+section {
+  padding: 4rem 0;
+}
+
+/*To give more reading room or more space when the user will be on the larger screens*/
+@media (min-width: 40em) {
+  header,
+  section {
+    padding: 7rem 0;
+  }
+}
+
+/*Utility class, have to do one thing and only one thing*/
+.container {
+  /*maring-inline will put the margin in left and right only
+is the same if we put margin:0 auto (vertical : 0, horizontal:auto)*/
+  margin-inline: auto;
+  width: min(
+    90%,
+    70.5rem
+  ); /*New css fuction, so 70.5rem is the maximum size, and minumum the 90% of his father element*/
+
+  /*
+  Anothe variant, like the old fashion one:border:
+  width:90%;
+  max-width:70.5rem;
+  */
+}
+
+.container--narrow {
+  max-width: 35rem;
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+}
+
+/*For big screens, changing the direction to row, to see 2 columns*/
+@media (min-width: 40em) {
+  .split {
+    flex-direction: row;
+  }
+
+  /*Always when we have to display something in 2 EQUALS columns*/
+  .split > * {
+    flex-basis: 100%; /*Setting the ideal width*/
+  }
+
+  /*ADJACENT SIBLING SELECTOR: Any element that has a sibilng before it.
+  Every child has something before, like in the split (>* -> all the childs, which are the divs)
+   (+ * -> looking for sibling before it)*/
+
+  /*In this case it loks for the divs before it, if it has, it will add a margin left, if not it won't add anything, 
+   works well only in media querie, in this case*/
+  .split > * + * {
+    margin-left: 2em;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/*Basic styles, bg colors, fonts, using the custom properties*/
+
+.bg-light {
+  background-color: var(--clr-primary-200);
+}
+.bg-primary {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-400);
+}
+.bg-dark {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-900);
+}
+
+.bg-primary h2,
+.bg-dark h2 {
+  color: var(--clr-primary-200);
 }
